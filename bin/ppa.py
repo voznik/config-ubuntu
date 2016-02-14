@@ -1,9 +1,7 @@
-#/bin/bash
-# This should come first for PPA's
-if [[ ! $INSTALL_SCRIPT ]]; then
-    echo "(!) Error: You must use the ./install.sh script."
-    exit
-fi
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
 
 sources=(git-core numix ubuntu-wine)
 
@@ -20,3 +18,6 @@ echo "(+) Updating Sources List"
 sudo apt-get update
 
 echo "(+) Sources List Update Complete."
+
+
+load_file_warning()

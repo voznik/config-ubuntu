@@ -1,8 +1,7 @@
-#/bin/bash
-if [[ ! $INSTALL_SCRIPT ]]; then
-    echo "(!) Error: You must use the ./install.sh script."
-    exit
-fi
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
 
 if [ -f /etc/apt/sources.list.d/phalcon*ppa ]; then
     sudo rm /etc/apt/sources.list.d/phalcon*ppa
@@ -52,3 +51,5 @@ if [ ! -L /usr/bin/phalcon ]; then
 fi
 
 echo "(+) Phalcon Dev Tools Installed, run with $ phalcon."
+
+load_file_warning()

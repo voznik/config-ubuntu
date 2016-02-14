@@ -1,10 +1,10 @@
-#/bin/bash
-if [[ ! $INSTALL_SCRIPT ]]; then
-    echo "(!) Error: You must use the ./install.sh script."
-    exit
-fi
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
 
 # These are most of the modules the general public use at some point.
+
 sudo apt-get install -y\
     mysql-server\
     php5\
@@ -106,3 +106,6 @@ echo "    127.0.0.1 localhost projects"
 echo ""
 echo "    And you'll be able to access http://projects for your /home/$USER/projects folder!"
 echo ""
+
+
+load_file_warning()

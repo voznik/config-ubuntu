@@ -1,8 +1,7 @@
-#/bin/bash
-if [[ ! $INSTALL_SCRIPT ]]; then
-    echo "(!) Error: You must use the ./install.sh script."
-    exit
-fi
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
 
 sudo apt-get install -y\
     python-dev\
@@ -13,3 +12,6 @@ sudo apt-get install -y\
 sudo pip install virtualenvwrapper fabric mycli --upgrade
 
 echo "(+) Complete! Run with $ python and $ pip"
+
+
+load_file_warning()

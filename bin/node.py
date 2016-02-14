@@ -1,8 +1,7 @@
-#/bin/bash
-if [[ ! $INSTALL_SCRIPT ]]; then
-    echo "(!) Error: You must use the ./install.sh script."
-    exit
-fi
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
 
 sudo apt-get install -y\
     nodejs
@@ -15,3 +14,6 @@ sudo npm install bower gulp grunt-cli n -g
 sudo chown -R $(whoami) ~/.npm
 
 echo "(+) Complete! Run with $ node and $npm."
+
+
+load_file_warning()

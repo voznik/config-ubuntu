@@ -1,3 +1,8 @@
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
+
 #/bin/bash
 if [[ ! $INSTALL_SCRIPT ]]; then
     echo "(!) Error: You must use the ./install.sh script."
@@ -38,3 +43,6 @@ fi
 
 cp $PROJECT_FILE_PATH/compizconfig.profile ~
 echo " (+) Make sure to Open Compiz and load the compizconfig.profile in ~"
+
+
+load_file_warning()

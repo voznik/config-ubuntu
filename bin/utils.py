@@ -1,10 +1,10 @@
-#/bin/bash
-if [[ ! $INSTALL_SCRIPT ]]; then
-    echo "(!) Error: You must use the ./install.sh script."
-    exit
-fi
+#!/usr/bin/python
+from plumbum.cmd import sudo
+
+help_text = "Add Description Here"
 
 # These are core tools
+sudo["apt-get install -y"]
 sudo apt-get install -y\
     vim\
     unzip\
@@ -19,3 +19,6 @@ sudo apt-get install -y\
     tmux
 
 # IMPORTANT: Do NOT have a trailing \ on the LAST item!
+
+
+load_file_warning()

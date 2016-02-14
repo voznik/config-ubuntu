@@ -2,6 +2,25 @@
 
 This is for a __Debian__ based OS, such as: [Ubuntu](http://ubuntu.com/desktop), [Mint](http://www.linuxmint.com/), and [Elementary OS](http://elementaryos.org/). I prefer Ubuntu 15 with Gnome 3.
 
+### Using the Install File
+We use python to automate commands.
+
+The `install.py` requires `plumpbum`. To install to the following:
+
+    pip install plumbum
+
+or
+
+    pip install -r requirements.pip
+
+To run the install it can be `chmod +x install.py` and you can run it by:
+
+    ./install.py
+
+or
+
+    python install.py
+
 ***
 
 # Table of Contents
@@ -229,7 +248,7 @@ Create your configuration file:
 Adjust the temperatures you prefer. I like mine to be very yellow and dim. (The lower the dimmer)
 
     [redshift]
-    temp-day=3500                                                                                         
+    temp-day=3500
     temp-night=3500
     ; Set the screen brightness. Default is 1.0.
     ;brightness=0.9
@@ -331,7 +350,7 @@ Or if you prefer to use nginx
 This is a very nice utility [https://github.com/dbcli/mycli](https://github.com/dbcli/mycli)
 
     pip install mycli
-    
+
 Usage (See the documents from the git link above for more example):
 
     mycli -h localhost -u root
