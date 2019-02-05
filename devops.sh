@@ -36,13 +36,13 @@ cat <<- command_list
     gcloud         Install Google Cloud CLI tools
 
     docker         Install Docker, Compose, Machine & bash-autocomplete
+    docker-mint    Install Docker on Linux Mint 18.2
+
     ansible        Install Ansible Provisioner
-    logstash       Install LogStash
     saltstack      Install Saltstack Provisioner
     consul         Install Hashicorp Consul
     nomad          Install Hashicorp Nomad
     packer         Install Hashicorp Packer
-    ptrsyslog      Install Hashicorp PaperTrail Syslog2
     serf           Install Hashicorp Serf
     terraform      Install Hashicorp Terraform
     vault          Install Hashicorp Vault
@@ -50,8 +50,10 @@ cat <<- command_list
 
     Deployment
     ----------
-    rocketeer      Install PHP Deployment System
-    capistrano     Install Ruby Capistrano
+    kubernetes     Install Kubernetes (kubectl)
+                   (or use: kubtectl to install)
+    minikube       Install Minikube (local kubernetes development)
+                   (You will need virtualbox installed for minikube)
 
     Benchmarking:
     -------------
@@ -100,6 +102,12 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
+        docker-mint)
+            bash ./bin/devops/docker-mint.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
         gcloud)
             bash ./bin/devops/gcloud.sh
             echo ""
@@ -108,12 +116,6 @@ read -p "Type a Command: " cmd
             ;;
         iperf)
             bash ./bin/devops/benchmark/iperf.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        logstash)
-            bash ./bin/devops/logstash.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -130,18 +132,17 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        ptrsyslog)
-            bash ./bin/devops/papertrail-rsyslog2.sh
+        kubernetes|kubectl)
+            bash ./bin/devops/kubernetes.sh
             echo ""
-            echo "====================================================================="
-            echo ""
+  ¦ ¦ ¦ ¦ ¦ echo "====================================================================="
+  ¦ ¦ ¦ ¦ ¦ echo ""
             ;;
-
-        rocketeer)
-            bash ./bin/devops/rocketeer.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
+        minikube)
+            bash ./bin/devops/minikube.sh
+  ¦ ¦ ¦ ¦ ¦ echo ""
+  ¦ ¦ ¦ ¦ ¦ echo "====================================================================="
+  ¦ ¦ ¦ ¦ ¦ echo ""
             ;;
         saltstack)
             bash ./bin/devops/saltstack.sh
@@ -206,6 +207,7 @@ read -p "Type a Command: " cmd
             echo ""
             echo "====================================================================="
             echo ""
+            sleep 2
 
     esac
 

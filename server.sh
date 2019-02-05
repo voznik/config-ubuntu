@@ -38,6 +38,10 @@ cat <<- command_list
     ----
     letsencrypt   Installs LetsEncrypt 90 day SSL Certs you must renew CRONtab
 
+    Git:
+    ----
+    gitflow       The Gitflow model (with autocomplete)
+
     Databases:
     ----------
     mariadb       Install MariaDB (MySQL Fork)
@@ -47,26 +51,41 @@ cat <<- command_list
     postgres      Install Postgres
     redis         Install Redis (redis-server)
     elasticsearch Install Elastic Search
+    es                          (alias: elastic search)
 
     Languages:
     ----------
     go            Install Google Go
+    lua           Install Lua Language
     java          Install JRE and JDK (default-jre, not Oracle)
-    node          Install NodeJS (nodejs, npm: n, bower, gulp)
-    php70         Install PHP7.0 with common modules
-    php71         Install PHP7.1 with common modules (Phalcon not ready)
-    py            Install Python2/3 PIP2/3 Devel,(bpython,  mycli, virtualenvwrapper)
+    node          Install NodeJS v8.X via Repo
+    php72         Install PHP7.1 with common modules
+    py            Install Python2/3 PIP2/3 Devel,(bpython, mycli, virtualenvwrapper)
     rb            Install Ruby (ruby, ruby-dev, gem)
     rust          Install Rust Language (Installer)
     swift         Install Swift Language (OSX/Ubuntu Only)
 
+    Languages Version Managers:
+    ----------
+    gvm           Install Golang Version Manager
+    nvm           Install Node Version Manager
+    pipenv        Install Python Pipenv
+    phpenv        Install PHP Env Manager
+    pyenv         Install Pyenv (Alternative to Pipenv)
+    rbenv         Install RVM (Ruby Version Manager)
+    yarn          Install Yarn (NPM Alternative for NodeJS)
+
+    pipauto       Install PIP Bash Auto Complete (Python, Globally)
+                  Alias: pipac
+
     Frameworks/Util:
     -----------
     php-composer  Install/Update PHP Composer Package
+      composer                (alias: php-composer)
     php-phalcon   Install Phalcon (<=15 Wily & Below) or PHP7 (>=17 Xenial)
+      phalcon                 (alias: php-phalcon)
     php-laravel   Install Laravel (Composer global install as current user)
-    php-lumen     Install Lumen ( Composer global install as current user )
-    middleman     Installs Middleman (Ruby), middlemanapp.com (More of a local tool)
+      laravel                 (alias: laravel)
 
 
     Utilities:
@@ -78,6 +97,7 @@ cat <<- command_list
     util          Install Utilities: (git, curl, htop, unzip, terminator, tmux, screen)
     utilxtra      Intall Bonus CLI Utilities (peco)
     vim           Install Vim & Plugins (.vimrc and Vundle Plugins)
+    vimycm        Install/Compile Vim YCM (You Compelete Me)
 
     Quit:
     -----
@@ -116,14 +136,26 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        elasticsearch)
+        es|elasticsearch)
             bash ./bin/server/elasticsearch.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        gitflow)
+            bash ./bin/server/gitflow.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
         go)
             bash ./bin/server/go.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        gvm)
+            bash ./bin/server/gvm.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -136,6 +168,12 @@ read -p "Type a Command: " cmd
             ;;
         letsencrypt)
             bash ./bin/server/letsencrypt.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        lua)
+            bash ./bin/server/lua.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -158,12 +196,6 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        middleman)
-            bash ./bin/server/middleman.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
         nginx)
             bash ./bin/server/nginx.sh
             echo ""
@@ -176,44 +208,56 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
+        nvm)
+            bash ./bin/server/nvm.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
         perm)
             bash ./bin/perm.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
-        php-composer)
+        pipenv)
+            bash ./bin/server/pipenv.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        composer|php-composer)
             bash ./bin/server/php-composer.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
-        php-laravel)
+        laravel|php-laravel)
             bash ./bin/server/php-laravel.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
-        php-lumen)
-            bash ./bin/server/php-lumen.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        php-phalcon)
+        phalcon|php-phalcon)
             bash ./bin/server/php-phalcon.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
-        php70)
-            bash ./bin/server/php70.sh
+        php72)
+            bash ./bin/server/php72.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
-        php71)
-            bash ./bin/server/php71.sh
+        pipauto|pipac)
+            bash ./bin/server/pipauto.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        phpenv)
+            bash ./bin/server/phpenv.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -236,8 +280,20 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
+        pyenv)
+            bash ./bin/server/pyenv.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
         rb)
             bash ./bin/server/rb.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        rbenv)
+            bash ./bin/server/rbenv.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -250,6 +306,12 @@ read -p "Type a Command: " cmd
             ;;
         redis)
             bash ./bin/server/redis.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        rvm)
+            bash ./bin/server/rvm.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -284,8 +346,20 @@ read -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
+        yarn)
+            bash ./bin/server/yarn.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
         vim)
             bash ./bin/vim.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        vimycm)
+            bash ./bin/vimycm.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -299,6 +373,7 @@ read -p "Type a Command: " cmd
             echo ""
             echo "====================================================================="
             echo ""
+            sleep 2
 
     esac
 

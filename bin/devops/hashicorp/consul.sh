@@ -4,13 +4,18 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
-curl -o consul.zip https://releases.hashicorp.com/consul/0.8.1/consul_0.8.1_linux_amd64.zip
+ver="1.4.2"
 
-unzip consul.zip
-sudo mv consul /usr/local/bin
-rm consul.zip
+echo "Installing Hashicorp Consul v$ver"
+
+curl -o consul.zip "https://releases.hashicorp.com/consul/$ver/consul_${ver}_linux_amd64.zip"
+
+unzip consul.zip && rm consul.zip
+sudo chmod +x consul && sudo mv consul /usr/local/bin
+
 
 echo "(+) Complete! Run with $ consul"
+echo "@   Also See Consul Tools: https://www.consul.io/downloads_tools.html"
 
 if [ $SKIP_SLEEP == false ]; then
     sleep 4

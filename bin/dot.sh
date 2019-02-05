@@ -14,33 +14,7 @@ else
     exit
 fi
 
-dotfiles=(
-    'aws'
-    'bash_aliases'
-    'bashrc'
-    'editorconfig'
-    'exports'
-    'gitconfig'
-    'gitignore'
-    'jscsrc'
-    'jshintrc'
-    'profile'
-    'vimrc'
-)
-
-for i in "${dotfiles[@]}"
-do
-    src="$PROJECT_DOTFILE_PATH/.$i"
-    dest="$HOME_PATH/"
-
-    # Force Copy Overwrite
-    sudo yes 2>/dev/null | cp -rf $src $dest
-    sudo chown $USER:$USER "$HOME_PATH/.$i"
-done
-
-# Reload Bash Config
-source $HOME_PATH/.bashrc
-source $HOME_PATH/.profile
+source $PROJECT_DOTFILE_PATH/copy-dotfiles.sh
 
 echo "(+) Complete! Make sure to $ source $HOME_PATH/.bashrc && source $HOME_PATH/.profile"
 

@@ -4,15 +4,20 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
-echo "(+) Downloading Hashicorp Terraform"
+ver="0.11.11"
 
-curl -o terraform.zip https://releases.hashicorp.com/terraform/0.9.3/terraform_0.9.3_linux_amd64.zip
+echo "(+) Downloading Hashicorp Terraform v$ver"
 
-unzip terraform.zip
-sudo mv terraform /usr/local/bin
-rm terraform.zip
+curl -o terraform.zip "https://releases.hashicorp.com/terraform/${ver}/terraform_${ver}_linux_amd64.zip"
+
+unzip terraform.zip && rm terraforn.zip
+sudo chmod +x terraform && sudo mv terraform /usr/local/bin
+
+echo "Adding Bash Autocompletions"
+sudo curl -o  /etc/bash_completion.d/terraform https://raw.githubusercontent.com/Bash-it/bash-it/master/completion/available/terraform.completion.bash
 
 echo "(+) Complete! Run with $ terraform"
+echo "@   Also See Modules: https://registry.terraform.io/"
 
 if [ $SKIP_SLEEP == false ]; then
     sleep 4

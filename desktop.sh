@@ -32,27 +32,25 @@ while true; do
 cat <<- command_list
     Configure:
     ----------
-    btnleft       Move Close/Min/Max to Left on Windows
-    btnright      Move Min/Max/Close to Right on Windows (Familiar to Windows OS)
-    dismm         Disable MiddleMouse Copy/Paste (Scroll Works), makes Backup file.
-
-    gnome         Install Gnome 3 GUI (You toggle at login or see README)
+    gnome         Install Gnome 3 GUI + Tweak Tool (You toggle at login or see README)
     gnome-chrome  Install Chrome Addon to allow installing Gnome Ext from Chrome
     gnome-vpn     Install OpenVPN items for Gnome
-    gui           Install Ubuntu GUI Tools (Compiz, Tweak)
-    hotkeys       Removes Email/WWW hotkeys, adds <Super+e> to Home Folder
     numix         Install Numix Theme
     papirus       Install Papirus Icon Theme
+    xenlism       Install Xenlism Theme, Icons, Wallpaper
 
     apport-off    Disable apport error reporting in GUI (The popup windows)
-    projects      Create/Update ~/projects folder with www-data:www-data and setfacl for user/group
+    projects      Creates ~/projects folder with www-data:www-data user/group
     shutter       Best Screenshot Tool (Instructions to overwrite PrintScreen after install)
+
+    nemo          File Browser Alternative, very good!
 
     FTP/Cloud
     ---------
     crossftp      (Only Good one for S3/Glacier on Linux I could find)
                   30 Day Trial, Works with S3 and Glacier
     filezilla     FTP/FTPS Client
+    fz                          (alias: filezilla)
 
     Firewall Personal
     -----------------
@@ -61,39 +59,36 @@ cat <<- command_list
     Code Editors:
     ----------
     sublime-text  Installs sublime text 3 (deb package) (x64)
+    st3                         (alias: sublime text 3)
     vscode        Install Visual Studio Code (apt) (x64)
-    remarkable    Install Remarkable Markdown Editor
     postman       The popular Postman Client for API testing
-
-    GUI Development:
-    ----------------
-    mono          Install Mono for C# in .NET to build/run applications.
-    pygtk         Install PyGTK Cross Pltfm GUI (GTK2&3, Glade GUI Editor)
-    pyqt5         Install PyQt5 Cross Pltfm GUI (Requires Python 3)
-
-    Static Site Generators:
-    -----------------------
-    hugo          Install Hugo .deb written in Go
+    monodevelop   Install C#/.NET editor (Install .NET and Monodevelop)
 
     Utilities:
     ----------
-    deploy        Simple Bash Script to deploy to servers, (Git: visionmedia/deply)
+    arronax       Easily Create Launchers for any Linux Environment
     dot           Copy Dotfiles (.bashrc, .gitconfig, .gitignore)
     dropbox       Installs Dropbox (x64)
+    hub           Official GitHub CLI tool $ hub
+    ffmpeg        ffmpeg cli converter
+    flux          f.lux for eye strain, GUI app
     perm          Update /usr/local permissions
     mysqlwb       Install MySQL Workbench
     security      Install ClamAV, RKHunter (read instructions after install)
     touchpad-tool Install touchpad-indicator.
     util          Install Utilities: (git, curl, htop, unzip, terminator, tmux, screen)
     utilxtra      Intall Bonus CLI Utilities (peco)
-    vmware-tools  Install VMWare Tools (When Mounted Only!)
     vim           Install Vim (.vimrc and Vundle Plugins)
+    vimycm        Install/Compile Vim YCM (You Compelete Me)
 
     Browser
     -------
     chromium      Install Chromium Browser and FFMPEG Codecs (blue icon)
     chrome        Install Chrome Stable (latest debian file)
 
+    GUI
+    -------
+    cinnamon      Install Cinnamon GUI + Muffin + OpenGL
 
     Quit:
     -----
@@ -115,20 +110,20 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        btnleft)
-            bash ./bin/desktop/btn-left.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        btnright)
-            bash ./bin/desktop/btn-right.sh
+        arronax)
+            bash ./bin/desktop/arronax.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
         chrome)
             bash ./bin/desktop/chrome.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        cinnamon)
+            bash ./bin/desktop/cinnamon.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -145,18 +140,6 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        deploy)
-            bash ./bin/deploy.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        dismm)
-            bash ./bin/desktop/disable-middle-mouse.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
         dot)
             bash ./bin/dot.sh
             echo ""
@@ -169,7 +152,25 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        filezilla)
+        hub)
+            bash ./bin/misc/hub-cli.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        ffmpeg)
+          bash ./bin/desktop/ffmpeg.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        flux)
+          bash ./bin/desktop/flux.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        fz|filezilla)
             bash ./bin/desktop/filezilla.sh
             echo ""
             echo "====================================================================="
@@ -199,26 +200,14 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        hotkeys)
-            bash ./bin/desktop/hotkeys.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        hugo)
-            bash ./bin/desktop/hugo.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        mono)
-            bash ./bin/desktop/mono.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
         mysqlwb)
             bash ./bin/desktop/mysql-workbench.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        nemo)
+            bash ./bin/desktop/nemo.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -253,24 +242,6 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        pygtk)
-            bash ./bin/desktop/pygtk.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        pyqt5)
-            bash ./bin/desktop/pyqt5.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
-        remarkable)
-            bash ./bin/desktop/remarkable.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
         security)
             bash ./bin/security.sh
             echo ""
@@ -283,7 +254,7 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        sublime-text)
+        st3|sublime-text)
             bash ./bin/desktop/sublime-text.sh
             echo ""
             echo "====================================================================="
@@ -313,20 +284,26 @@ read -e -p "Type a Command: " cmd
             echo "====================================================================="
             echo ""
             ;;
-        vmware-tools)
-            bash ./bin/desktop/vmware-tools.sh
-            echo ""
-            echo "====================================================================="
-            echo ""
-            ;;
         vim)
             bash ./bin/vim.sh
             echo ""
             echo "====================================================================="
             echo ""
             ;;
+        vimycm)
+            bash ./bin/vimycm.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
         vscode)
             bash ./bin/desktop/vscode.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        xenlism)
+            bash ./bin/desktop/xenlism.sh
             echo ""
             echo "====================================================================="
             echo ""
@@ -340,6 +317,7 @@ read -e -p "Type a Command: " cmd
             echo ""
             echo "====================================================================="
             echo ""
+            sleep 2
 
     esac
 

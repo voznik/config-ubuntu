@@ -4,30 +4,22 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
+GO_VERSION="go1.11.5.linux-amd64"
+
 if [[ -d "/usr/local/go" ]]; then
-    echo "(!) Your path /usr/local/go already exists, remove before installing. stopping."
-    sleep 4
-    exit
+    echo "(!) Your path /usr/local/go already exists, assuming upgrade, clearing folder! (CTRL+C to stop)"
+    sudo rm -rf /usr/local/go
+    sleep 5
 fi
 
-echo "(+) Downloading Google Golang 1.8.1 for Linux AMD64"
-
-# Clear any existing tmp GO files
-rm $PROJECT_TEMP_PATH/go1*
+echo "(+) Downloading Google Go: $GO_VERSION"
 
 # Download Time!
-wget https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz -P $PROJECT_TEMP_PATH
+#[ ! -d /usr/local/go ] && sudo mkdir /usr/local/go
 
-cd $PROJECT_TEMP_PATH
-
-tar xvf go1.8*.tar.gz
-rm go1.8*
-
-echo "(+) Moving $PROJECT_TEMP_PATH/go to /usr/local with permissions: root:root"
-
-sudo chown -R root:root ./go
-sudo mv go /usr/local
-
+sudo curl -o /usr/local/go.tar.gz "https://dl.google.com/go/${GO_VERSION}.tar.gz"
+  sudo tar zxf /usr/local/go.tar.gz -C /usr/local/ &&\
+  sudo rm /usr/local/go.tar.gz
 
 echo "(+) Creating a local ~/go folder for your code. Setting your user permissions."
 

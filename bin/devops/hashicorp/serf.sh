@@ -4,13 +4,14 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
-echo "(+) Downloading Hashicorp Serf"
+ver="0.8.1"
 
-curl -o serf.zip https://releases.hashicorp.com/serf/0.7.0/serf_0.7.0_linux_amd64.zip
+echo "(+) Downloading Hashicorp Serf v$ver"
 
-unzip serf.zip
-sudo mv serf /usr/local/bin
-rm serf.zip
+curl -o serf.zip https://releases.hashicorp.com/serf/$ver/serf_${ver}_linux_amd64.zip
+
+unzip serf.zip && rm serf.zip
+sudo chmod +x serf && sudo mv serf /usr/local/bin
 
 echo "(+) Complete! Run with $ serf"
 

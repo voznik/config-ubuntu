@@ -4,13 +4,15 @@ if [[ ! $INSTALL_SCRIPT ]]; then
     exit
 fi
 
+ver="0.8.7"
+
 echo "(+) Downloading Hashicorp Nomad"
 
-curl -o nomad.zip https://releases.hashicorp.com/nomad/0.5.6/nomad_0.5.6_linux_amd64.zip
+curl -o nomad.zip "https://releases.hashicorp.com/nomad/$ver/nomad_${ver}_linux_amd64-lxc.zip"
 
-unzip nomad.zip
-sudo mv nomad /usr/local/bin
-rm nomad.zip
+unzip nomad.zip && rm nomad.zip
+sudo chmod +x nomad && sudo mv nomad /usr/local/bin
+
 
 echo "(+) Complete! Run with $ nomad"
 
