@@ -90,6 +90,10 @@ cat <<- command_list
     -------
     cinnamon      Install Cinnamon GUI + Muffin + OpenGL
 
+    SNAP
+    -------
+    snap      Install ALL snap packages
+
     Quit:
     -----
     q             Quit (or CTRL + C)
@@ -304,6 +308,12 @@ read -e -p "Type a Command: " cmd
             ;;
         xenlism)
             bash ./bin/desktop/xenlism.sh
+            echo ""
+            echo "====================================================================="
+            echo ""
+            ;;
+        snap)
+            bash ./bin/desktop/snap/snaps.sh
             echo ""
             echo "====================================================================="
             echo ""

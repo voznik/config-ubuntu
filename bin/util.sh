@@ -17,8 +17,7 @@ UTILS=(
   dconf-editor
   elinks
   gdebi
-  git
-  git-extras
+  # git git-extras # moved to gitflow.sh
   gnupg2
   gpa
   gparted
@@ -31,7 +30,7 @@ UTILS=(
   netperf
   parallel
   preload
-  putty-tools
+  # putty-tools
   pwgen
   pydf
   python-software-properties
@@ -46,8 +45,8 @@ UTILS=(
   tmux
   tree
   libkrb5-dev # Fornnode-gym rebuild (rm -rf ~/.node-gyp && npm i -g update
-  ubuntu-restricted-addons
-  ubuntu-restricted-extras
+  # ubuntu-restricted-addons
+  # ubuntu-restricted-extras
   unetbootin
   unzip
   whois

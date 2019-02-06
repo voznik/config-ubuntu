@@ -5,7 +5,7 @@ if [[ ! $INSTALL_SCRIPT ]]; then
 fi
 
 echo "(+) Installing Git (If Not Installed); Git-Flow; Bash-Completions (If Not Installed)"
-
+sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt-get install git git-flow bash-completion -y
 
 echo "(+) Copying git-flow-completion.bash to Your Home Folder"
